@@ -66,13 +66,21 @@ config USBSERIAL
 config SERIAL
     bool
 choice
-    prompt "Communication interface"
     config LPC_USB
         bool "USB"
         select USBSERIAL
-    config LPC_SERIAL
-        bool "Serial"
+	config LPC_SERIAL_UART0
+        bool "Serial (on UART0 P0.3/P0.2)"
         select SERIAL
+    config LPC_SERIAL_UART1
+        bool "Serial (on UART1 P0.16/P0.15)" 
+        select SERIAL
+    config LPC_SERIAL_UART2
+        bool "Serial (on UART2 P0.11/P0.10)"
+        select SERIAL
+    config LPC_SERIAL_UART3
+        bool "Serial (on UART3 P4.29/P4.28)"
+        select SERIAL	
 endchoice
 
 endif
